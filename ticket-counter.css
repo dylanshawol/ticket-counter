@@ -1,3 +1,7 @@
+html * { 
+    font-family: 'Nunito', sans-serif;
+}
+
 .mb-3 {
     max-width: 80%;
     margin: auto;
@@ -14,3 +18,10 @@
     margin-left: 30px;
 }
 
+footer {
+    position: fixed;
+    bottom: 100;
+    width: 100%;
+    color: white;
+    text-align: center;
+  }

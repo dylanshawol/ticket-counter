@@ -37,9 +37,13 @@ function addPackNumberToList() {
     //     Pack 2: ${secondPackInput}
     // `);
 
-    var firstPackInput = document.getElementById("first-pack-input").valueAsNumber;
+    var firstPackInput = document.getElementById("first-pack-input");
     
-    var secondPackInput = document.getElementById("second-pack-input").valueAsNumber;
+    var secondPackInput = document.getElementById("second-pack-input");
+
+    var firstPackNum = firstPackInput.valueAsNumber;
+
+    var secondPackNum = secondPackInput.valueAsNumber;
 
     var addButton = document.getElementById("add-btn");
 
@@ -49,13 +53,13 @@ function addPackNumberToList() {
 
     
 
-        if (!isNaN(firstPackInput) && !isNaN(secondPackInput)) {
-            if (firstPackInput > secondPackInput) {
-                firstPackInput++;
-                finalAmount = firstPackInput - secondPackInput;
+        if (!isNaN(firstPackNum) && !isNaN(secondPackNum)) {
+            if (firstPackNum > secondPackNum) {
+                firstPackNum++;
+                finalAmount = firstPackNum - secondPackNum;
             } else {
-                secondPackInput++;
-                finalAmount = secondPackInput - firstPackInput;
+                secondPackNum++;
+                finalAmount = secondPackNum - firstPackNum;
             }
 
             numbers.push(finalAmount);
@@ -71,6 +75,10 @@ function addPackNumberToList() {
             listTitle.innerText = "Counted Packs - Total: " + totalAmount;
 
             totalAmount = 0;
+
+            firstPackInput.value = null;
+            
+            secondPackInput.value = null;
         }
     
 
