@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ticket Counter</title>
+    <link href="ticket-counter.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  </head>
+  <body class="bg-dark text-white">
+    <h1 class="h1-title">Ticket Counter</h1>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script defer src="ticket-counter.js"></script>
+
+    <form>
+        <div class="mb-3">
+            <label for="pack1" class="form-label">First Pack Number</label>
+            <input id="first-pack-input" type="number" name="pack1" class="form-control" placeholder="00" id="packNum1">
+        </div>
+
+        <div class="mb-3">
+            <label for="pack2" class="form-label">Second Pack Number</label>
+            <input id="second-pack-input" type="number" name="pack2" class="form-control" placeholder="00"id="packNum2">
+        </div>
+
+        <div class="mb-3">
+            <button id="add-btn" type="button" class="btn btn-primary" onclick="addPackNumberToList()">Add to List</button>
+            <button id="del-btn" type="button" class="btn btn-primary" onclick="clearList()">Clear List</button>
+        </div>
+
+        <div class="mb-3">
+            <h3 id="list-title">Counted Packs</h3>
+            <ul id="num-list" class="list-group">
+              
+            </ul>
+        </div>
+
+    </form>
+  </body>
+</html>
