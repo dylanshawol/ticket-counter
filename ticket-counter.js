@@ -2,6 +2,8 @@ var numbers = [];
 var finalAmount = 0;
 var totalAmount = 0;
 
+console.log(`Total Amount Line 5: ${totalAmount}`);
+
 init();
 
 function init() {
@@ -12,22 +14,26 @@ function init() {
         var listTitle = document.getElementById("list-title");
 
         var storageArr = JSON.parse(window.localStorage.getItem("numbers"));
-        var totalAmount = calculateTotalAmountOfTickets(storageArr);
+        totalAmount = calculateTotalAmountOfTickets(storageArr);
 
-        console.log(
-            `
-             Storage: ${window.localStorage.getItem("numbers")}
-             Storage Length: ${window.localStorage.length}
+        console.log(`Total Amount Line 19: ${totalAmount}`);
+
+        // console.log(
+        //     `
+        //      Storage: ${window.localStorage.getItem("numbers")}
+        //      Storage Length: ${window.localStorage.length}
              
-             `
-        );
+        //      `
+        // );
     
     
         for (let i = 0; i < storageArr.length; i++) {
             numList.innerHTML += '<li class="list-group-item">' + storageArr[i] + '</li>';
         }
+        
 
         listTitle.innerText = "Counted Packs - Total: " + totalAmount;
+
     }
 }
 
@@ -68,9 +74,9 @@ function addPackNumberToList() {
 
             finalAmount = 0;
             
-            totalAmount = calculateTotalAmountOfTickets(numbers);
+            totalAmount += calculateTotalAmountOfTickets(numbers);
 
-            console.log("Total Amount:" + totalAmount);
+            console.log(`Total Amount Line 79: ${totalAmount}`);
 
             listTitle.innerText = "Counted Packs - Total: " + totalAmount;
 
