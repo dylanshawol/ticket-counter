@@ -2,47 +2,30 @@ var numbers = [];
 var finalAmount = 0;
 var totalAmount = 0;
 
-console.log(`Total Amount Line 5: ${totalAmount}`);
-
 init();
 
 function init() {
-    const isStorageFullOfNumbers = window.localStorage.getItem("numbers");
+    const storedNumbers = JSON.parse(window.localStorage.getItem("numbers"));
 
-    if (isStorageFullOfNumbers) {
+    if (storedNumbers) {
         var numList = document.getElementById("num-list");
         var listTitle = document.getElementById("list-title");
 
-        var storageArr = JSON.parse(window.localStorage.getItem("numbers"));
-        totalAmount = calculateTotalAmountOfTickets(storageArr);
+        numbers = storedNumbers;
 
-        console.log(`Total Amount Line 19: ${totalAmount}`);
-
-        // console.log(
-        //     `
-        //      Storage: ${window.localStorage.getItem("numbers")}
-        //      Storage Length: ${window.localStorage.length}
-             
-        //      `
-        // );
+        const storedTotal = calculateTotalAmountOfTickets(numbers);
     
-    
-        for (let i = 0; i < storageArr.length; i++) {
-            numList.innerHTML += '<li class="list-group-item">' + storageArr[i] + '</li>';
+        for (let i = 0; i < numbers.length; i++) {
+            numList.innerHTML += '<li class="list-group-item">' + numbers[i] + '</li>';
         }
         
 
-        listTitle.innerText = "Counted Packs - Total: " + totalAmount;
+        listTitle.innerText = "Counted Packs - Total: " + storedTotal;
 
     }
 }
 
 function addPackNumberToList() {
-    // console.log(`
-    //     Pack 1: ${firstPackInput} \n
-    //     Pack 2: ${secondPackInput}
-    // `);
-
     var firstPackInput = document.getElementById("first-pack-input");
     
     var secondPackInput = document.getElementById("second-pack-input");
@@ -58,7 +41,6 @@ function addPackNumberToList() {
     var listTitle = document.getElementById("list-title");
 
     
-
         if (!isNaN(firstPackNum) && !isNaN(secondPackNum)) {
             if (firstPackNum > secondPackNum) {
                 firstPackNum++;
@@ -76,7 +58,7 @@ function addPackNumberToList() {
             
             totalAmount += calculateTotalAmountOfTickets(numbers);
 
-            console.log(`Total Amount Line 79: ${totalAmount}`);
+            console.log(totalAmount);
 
             listTitle.innerText = "Counted Packs - Total: " + totalAmount;
 
@@ -89,7 +71,6 @@ function addPackNumberToList() {
     
 
     window.localStorage.setItem("numbers", JSON.stringify(numbers));
-    
 }
 
 function calculateTotalAmountOfTickets(arr) {
